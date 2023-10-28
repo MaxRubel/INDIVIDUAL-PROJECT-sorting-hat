@@ -13,7 +13,7 @@ const students = [
   },
 ];
 
-const studentArray = document.querySelector("#studentArray");
+// const studentArray = document.querySelector("#studentArray");
 
 //RENDER ENROLLED STUDENS
 function renderStudentCards(array) {
@@ -29,12 +29,10 @@ function renderStudentCards(array) {
         </div>
       </div> `;
   }
-  studentArray.innerHTML = domString;
+  document.querySelector("#studentArray").innerHTML = domString;
 }
 
-renderStudentCards(students);
-
-function renderExpelled(array){
+function renderExpelled(array) {
   let domString = "";
   for (student of array) {
     domString += ` 
@@ -47,13 +45,17 @@ function renderExpelled(array){
         </div>
       </div> `;
   }
-  studentArray.innerHTML = domString;
+  document.querySelector("#expelled").innerHTML = domString;
 }
 
-function hatToForm() {
+function event() {
   const sortingHat = document.querySelector("#sortingHat");
   const inputForm = document.querySelector("#inputForm");
 
+  //SHOW ALL
+  renderStudentCards(students);
+  // renderExpelled(expelled);
+  
   //CLICK ON HAT TO CREATE FORM
   sortingHat.addEventListener("click", () => {
     sortingHat.style.display = "none";
@@ -72,7 +74,19 @@ function hatToForm() {
     console.log(newStudent);
     students.push(newStudent);
     renderStudentCards(students);
-    renderStudentCards(expelled);
+  });
+
+  //EXPELL STUDENT
+  studentArray.addEventListener("click", (event) => {
+    const expelled = [];
+    if (event.target.id.includes("expel")) {
+      const [, id] = event.target.id.split("--");
+      const index = students.findIndex((obj) => obj.id === Number(id));
+      expelled.push(students[id]);
+      students.splice(index, 1);
+      renderStudentCards(students);
+      renderExpelled(expelled);
+    }
   });
 }
 
@@ -90,16 +104,6 @@ function assignHouse() {
   }
 }
 
-hatToForm();
 
-studentArray.addEventListener("click", (event) => {
-  const expelled = [];
-  if (event.target.id.includes("expel")) {
-    const [, id] = event.target.id.split("--");
-    const index = students.findIndex((obj) => obj.id === Number(id));
-    expelled.push(students[id]);
-    students.splice(index, 1);
-    renderStudentCards(students);
-    console.log(expelled);
-  }
-});
+
+event();
