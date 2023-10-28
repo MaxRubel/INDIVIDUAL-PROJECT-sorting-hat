@@ -1,61 +1,105 @@
-const enrolled=[
+const students = [
   {
-    name:'',
-    id: '',
-    house: ''
-  }
-]
-
-const expelled=[
+    name: "max",
+    id: 0,
+    house: "hufflepuff",
+    enrolled: true,
+  },
   {
-    name:'',
-    id: '',
-    house: ''
+    name: "john",
+    id: 1,
+    house: "Gryff",
+    enrolled: true,
+  },
+];
+
+const studentArray = document.querySelector("#studentArray");
+
+//RENDER ENROLLED STUDENS
+function renderStudentCards(array) {
+  let domString = "";
+  for (student of array) {
+    domString += ` 
+      <div class="studentCard" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${student.name}</h5>
+          <p class="card-text">${student.house}</p>
+          <a href="#" class="btn btn-primary" id="expel--${student.id}">Expel!</a>
+        </div>
+      </div> `;
   }
-]
-
-function renderToDom(){
-
+  studentArray.innerHTML = domString;
 }
 
+renderStudentCards(students);
 
-const studentArray=document.querySelector('#studentArray');
+function renderExpelled(array){
+  let domString = "";
+  for (student of array) {
+    domString += ` 
+      <div class="studentCard" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${student.name}</h5>
+          <p class="card-text">${student.house}</p>
+          <a href="#" class="btn btn-primary" id="expel--${student.id}">Expel!</a>
+        </div>
+      </div> `;
+  }
+  studentArray.innerHTML = domString;
+}
 
-{/* <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div> */}
+function hatToForm() {
+  const sortingHat = document.querySelector("#sortingHat");
+  const inputForm = document.querySelector("#inputForm");
 
-function hatToForm(){
-  const sortingHat=document.querySelector('#sortingHat');
-  let sortingHatImage='<img class="sortingHatPhoto" src="/images/sortingHat.png" height="300px" width="300px"></div>';
-  
-  const userForm=
-    `<form>
-      <div class="mb-3">
-        <label for="studentName" class="form-label">Student Name</label>
-        <input type="name" class="form-control" id="studentName" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">Please enter a lil' name for your student.</div>
-      </div>
-      <button type="submit" id="submit" class="btn btn-primary">Submit</button>
-    </form>`;
+  //CLICK ON HAT TO CREATE FORM
+  sortingHat.addEventListener("click", () => {
+    sortingHat.style.display = "none";
+    inputForm.style.display = "block";
+  });
 
-  sortingHat.innerHTML=sortingHatImage;
-
-  sortingHat.addEventListener('click', ()=>{
-    sortingHat.innerHTML=userForm;
-    console.log('hey');
-  })
-
-  form.addEventListener('submit', (event)=> {
+  //SUBMIT A NAME. CREATE A HOUSE. ADD TO ARRAY. RENDER
+  inputForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    sortingHat.innerHTML=userForm;
-    console.log("hey")
-  })
+    let newStudent = {
+      name: document.querySelector("#studentName").value,
+      id: students.length + 1,
+      house: assignHouse(),
+    };
+
+    console.log(newStudent);
+    students.push(newStudent);
+    renderStudentCards(students);
+    renderStudentCards(expelled);
+  });
+}
+
+//ASSIGN THE HOUSE
+function assignHouse() {
+  let randomInt = Math.floor(Math.random() * 12);
+  if (randomInt >= 0 && randomInt < 3) {
+    return "Gryffindor";
+  } else if (randomInt >= 3 && randomInt < 6) {
+    return "Slythern";
+  } else if (randomInt >= 6 && randomInt < 9) {
+    return "Ravenclaw";
+  } else if (randomInt >= 9 && randomInt <= 11) {
+    return "HufflePuff";
+  }
 }
 
 hatToForm();
+
+studentArray.addEventListener("click", (event) => {
+  const expelled = [];
+  if (event.target.id.includes("expel")) {
+    const [, id] = event.target.id.split("--");
+    const index = students.findIndex((obj) => obj.id === Number(id));
+    expelled.push(students[id]);
+    students.splice(index, 1);
+    renderStudentCards(students);
+    console.log(expelled);
+  }
+});

@@ -1,7 +1,30 @@
-.body{
-  color: black;
+body {
+  background-color: black;
+  color: white;
 }
 
-#hatPhoto{
+.container {
+  margin-top: 40px;
+  width: auto;
+  height: 300px;
+  display: flex;
   justify-content: center;
+}
+
+.buttonContainer {
+  height: 150;
+  display: flex;
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-secondary{
+  margin: 1%;
+  size:20;
+}
+
+#inputForm {
+  margin-top: 60px;
+  display: none;
 }
