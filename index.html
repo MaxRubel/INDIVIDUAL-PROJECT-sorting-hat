@@ -1,15 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="main.css">
-  <title>Sorting Hat!</title>
-</head>
-<body>
-  <div id="sortingHat"></div>
-  <div id="studentsArray"></div>
-<script src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <title>Sorting Hat!</title>
+  </head>
+  <!-- <img>
+    <img class="background" src="/images/harryHouse.jpeg"></img> -->
+    <!-- NAMING HAT IMAGE -->
+    <div class="container">
+      <div id="sortingHat" class="sortingHat">
+        <img src="/images/sortingHat.png" height="300px" width="300px" />
+      </div>
+
+      <!-- CREATE A NAME FORM -->
+      <div id="inputForm">
+        <form id="submitStudent">
+          <div class="mb-3">
+            <label for="studentName" class="form-label">Student Name</label>
+            <input
+              type="name"
+              class="form-control"
+              id="studentName"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text">
+              Please enter a lil' name for your student.
+            </div>
+            <div id="fail" display="none"></div>
+          </div>
+          <button type="submit" id="submit" class="btn btn-primary">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- HOUSE BUTTONS -->
+    <div class="buttonContainer" role="group" aria-label="Basic example">
+      <button type="button" id="gryffindor" class="btn btn-secondary">
+        Gryffindor
+      </button>
+      <button type="button" id="slytherin" class="btn btn-secondary">
+        Slytherin
+      </button>
+      <button type="button" id="ravenclaw" class="btn btn-secondary">
+        Ravenclaw
+      </button>
+      <button type="button" id="hufflepuff" class="btn btn-secondary">
+        Hufflepuff
+      </button>
+    </div>
+    <div class="buttonContainer" role="group" aria-label="Basic example">
+      <button type="button" id="allHouses" class="btn btn-secondary">
+        ALL HOUSES
+      </button>
+    </div>
+
+    <!-- ENROLLED ARRAY TABLE -->
+    <div class="containerEnrolled">
+      <div id="studentArray"></div>
+    </div>
+
+    <!-- EXPELLED CARDS -->
+    <div class="expelledH">EXPELLED</div>
+    <div class="containerExpelled">
+      <div id="expelled"></div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
 </html>
