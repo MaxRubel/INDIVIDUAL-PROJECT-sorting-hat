@@ -1,5 +1,6 @@
 body{
   background-color: black;
+  color: white
 }
 
 
@@ -53,8 +54,23 @@ img:hover {
 }
 
 #inputForm {
-  margin-top: 20px;
+  margin-top: 5rem;
   display: none;
+}
+
+.nameRow{
+  display:flex;
+  justify-content: center;
+}
+
+.submitRow{
+  display:flex;
+  justify-content: center;
+}
+
+#error{
+  display: none;
+  text-align: center;
 }
 
 .containerEnrolled {
