@@ -18,8 +18,6 @@ body{
   justify-content: center;
 }
 
-
-
 img:hover {
 
   animation: shake 0.5s;
@@ -42,15 +40,9 @@ img:hover {
 }
 
 .buttonContainer {
-  height: 6%;
   display: flex;
-  width: auto;
-  display: flex;
+  flex-direction: row;
   justify-content: center;
-}
-
-.btn-secondary {
-  margin: 1%;
 }
 
 #inputForm {
@@ -73,18 +65,74 @@ img:hover {
   text-align: center;
 }
 
+.btn-secondary {
+  margin: 1%;
+  font-size: small;
+  height:min-content;
+}
+
 .containerEnrolled {
   margin-top: 3%;
   display: flex;
   justify-content: center;
 }
 
+.card{
+  background-color: black;
+  border: 1px solid white;
+}
+
+.card-title{
+  color:white;
+}
+
+
+#Gryffindor{
+  background-color: lightskyblue;
+  color: black
+}
+
+#Ravenclaw{
+  background-color: indigo;
+  color: black;
+}
+
+#Slytherin{
+  background-color: darkgreen;
+  color: black
+}
+
+#Hufflepuff{
+  background-color: lightcoral;
+  color: black
+}
+
+#reEnroll{
+  align-items:left;
+}
 .expelledH {
   text-align: center;
+}
+
+.hey{
+  background-color: aqua;
 }
 
 .containerExpelled {
   margin-top: 3%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
+}
+
+#expelled{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin:auto;
+}
+
+.card{
+  margin:.5%;
 }
