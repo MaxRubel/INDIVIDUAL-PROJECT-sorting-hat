@@ -29,7 +29,6 @@ function event() {
   ];
 
   //RENDER STUDENTS
-
   function renderStudentCards(array) {
     let domString = "";
     let domStringEx = "";
@@ -59,6 +58,11 @@ function event() {
       }
       document.getElementById("expelled").innerHTML = domStringEx;
       document.getElementById("studentArray").innerHTML = domString;
+    }
+    if (domStringEx.length === 0) {
+      document.getElementById("expelly").style.display = "none";
+    } else {
+      document.getElementById("expelly").style.display = "block";
     }
   }
 
