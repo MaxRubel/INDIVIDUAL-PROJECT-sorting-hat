@@ -126,16 +126,16 @@ function event() {
   };
 
   //FILTER BUTTON EVENT LISTENERS
-  document.querySelector("#gryffindorb").addEventListener("click", () => {
+  document.querySelector("#gryffindorB").addEventListener("click", () => {
     filter("Gryffindor");
   });
-  document.querySelector("#slytherinb").addEventListener("click", () => {
+  document.querySelector("#slytherinB").addEventListener("click", () => {
     filter("Slytherin");
   });
-  document.querySelector("#ravenclawb").addEventListener("click", () => {
+  document.querySelector("#ravenclawB").addEventListener("click", () => {
     filter("Ravenclaw");
   });
-  document.querySelector("#hufflepuffb").addEventListener("click", () => {
+  document.querySelector("#hufflepuffB").addEventListener("click", () => {
     filter("Hufflepuff");
   });
   document.querySelector("#allHouses").addEventListener("click", () => {
