@@ -1,8 +1,7 @@
-body{
+body {
   background-color: black;
-  color: white
+  color: white;
 }
-
 
 /* .background{
   position: fixed;
@@ -19,24 +18,45 @@ body{
 }
 
 img:hover {
-
   animation: shake 0.5s;
 
   animation-iteration-count: infinite;
 }
 
 @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
 
 .buttonContainer {
@@ -50,25 +70,25 @@ img:hover {
   display: none;
 }
 
-.nameRow{
-  display:flex;
+.nameRow {
+  display: flex;
   justify-content: center;
 }
 
-.submitRow{
-  display:flex;
+.submitRow {
+  display: flex;
   justify-content: center;
 }
 
-#error{
+#error {
   display: none;
   text-align: center;
 }
 
 .btn-secondary {
-  margin: 1%;
+  margin: 1rem;
   font-size: small;
-  height:min-content;
+  height: min-content;
 }
 
 .containerEnrolled {
@@ -77,44 +97,43 @@ img:hover {
   justify-content: center;
 }
 
-.card{
+.card {
   background-color: black;
   border: 1px solid white;
 }
 
-.card-title{
-  color:white;
+.card-title {
+  color: white;
 }
 
-
-#Gryffindor{
+#Gryffindor {
   background-color: lightskyblue;
-  color: black
+  color: black;
 }
 
-#Ravenclaw{
+#Ravenclaw {
   background-color: indigo;
   color: black;
 }
 
-#Slytherin{
+#Slytherin {
   background-color: darkgreen;
-  color: black
+  color: black;
 }
 
-#Hufflepuff{
+#Hufflepuff {
   background-color: lightcoral;
-  color: black
+  color: black;
 }
 
-#reEnroll{
-  align-items:left;
+#reEnroll {
+  align-items: left;
 }
 .expelledH {
   text-align: center;
 }
 
-.hey{
+.hey {
   background-color: aqua;
 }
 
@@ -125,14 +144,14 @@ img:hover {
   justify-content: center;
 }
 
-#expelled{
+#expelled {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  margin:auto;
+  margin: auto;
 }
 
-.card{
-  margin:.5%;
+.card {
+  margin: 0.5%;
 }
