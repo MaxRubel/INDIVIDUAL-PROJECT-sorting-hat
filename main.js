@@ -29,7 +29,6 @@ function event() {
   ];
 
   //RENDER STUDENTS
-
   function renderStudentCards(array) {
     let domString = "";
     let domStringEx = "";
@@ -57,8 +56,13 @@ function event() {
       </div>
       `;
       }
-      document.getElementById("expelled").innerHTML = domStringEx;
       document.getElementById("studentArray").innerHTML = domString;
+      document.getElementById("expelled").innerHTML = domStringEx;
+    }
+    if (domStringEx.length === 0) {
+      document.getElementById("expelly").style.display = "none";
+    } else {
+      document.getElementById("expelly").style.display = "block";
     }
   }
 
@@ -96,45 +100,38 @@ function event() {
 
   //ASSIGN THE HOUSE
   function assignHouse() {
-    let randomInt = Math.floor(Math.random() * 12);
-    if (randomInt >= 0 && randomInt < 3) {
-      return "Gryffindor";
-    } else if (randomInt >= 3 && randomInt < 6) {
-      return "Slytherin";
-    } else if (randomInt >= 6 && randomInt < 9) {
-      return "Ravenclaw";
-    } else if (randomInt >= 9 && randomInt <= 11) {
-      return "Hufflepuff";
-    }
+    const houses = ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"];
+    let index = Math.floor(Math.random() * 4);
+    return houses[index];
   }
 
   //FILTER FUNCTION
   const filter = (house) => {
-    let houseArray = [];
-    for (student of students) {
-      if (student.house === house) {
-        houseArray.push(student);
-      }
-    }
-    document.getElementById("studentArray").innerHTML = "";
-    renderStudentCards(houseArray);
+    renderStudentCards(
+      students.filter(
+        (student) => student.house.toLowerCase() === house.toLowerCase()
+      )
+    );
     document.getElementById("expelled").innerHTML = "";
+    document.getElementById("expelly").style.display = "none";
   };
 
-  //FILTER BUTTON EVENT LISTENERS
-  document.querySelector("#gryffindorb").addEventListener("click", () => {
-    filter("Gryffindor");
+  //FILTER BUTTON EVENT LISTENER
+  const houseButtons = document.getElementById("houseButtons");
+  houseButtons.addEventListener("click", (event) => {
+    const id = event.target.id;
+    if (
+      id === "gryffindor" ||
+      id === "slytherin" ||
+      id === "ravenclaw" ||
+      id === "hufflepuff"
+    ) {
+      filter(id);
+    }
   });
-  document.querySelector("#slytherinb").addEventListener("click", () => {
-    filter("Slytherin");
-  });
-  document.querySelector("#ravenclawb").addEventListener("click", () => {
-    filter("Ravenclaw");
-  });
-  document.querySelector("#hufflepuffb").addEventListener("click", () => {
-    filter("Hufflepuff");
-  });
-  document.querySelector("#allHouses").addEventListener("click", () => {
+
+  // SHOW ALL BUTTON
+  document.getElementById("allHouses").addEventListener("click", () => {
     renderStudentCards(students);
   });
 
