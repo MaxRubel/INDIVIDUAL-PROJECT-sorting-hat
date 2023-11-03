@@ -27,13 +27,11 @@ function event() {
       status: "enrolled",
     },
   ];
-  console.log("hey");
   //RENDER STUDENTS
   function renderStudentCards(array) {
     let domString = "";
     let domStringEx = "";
-    console.log("hey");
-    for (student of array) {
+    array.forEach((student) => {
       if (student.status === "enrolled") {
         domString += `<table class="table table-dark table-striped" style="width: 600px">
       <thead>
@@ -59,9 +57,9 @@ function event() {
       }
       document.getElementById("studentArray").innerHTML = domString;
       document.getElementById("expelled").innerHTML = domStringEx;
-    }
+    });
+
     if (domStringEx.length === 0) {
-      console.log("hey");
       document.getElementById("expelly").style.display = "none";
     } else {
       document.getElementById("expelly").style.display = "block";
